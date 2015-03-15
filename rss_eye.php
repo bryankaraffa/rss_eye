@@ -2,16 +2,19 @@
 
 class rss_eye {
   var $url;
-  var $hashMethod = 'md5';
-  var $tmpDir = '/tmp/';
+  var $hashMethod;
+  var $tmpDir;
   var $items = array(
     "new" => Array(),
     "cached" => Array(),
   );
   var $feed;
 
-  function rss_eye($url) {
+  function rss_eye($url, $tmpDir = '/tmp/', $hashMethod = 'md5') {
     $this->url = $url;
+    $this->tmpDir = $tmpDir;
+    $this->hashMethod = $hashMethod;
+    $this->check();
   }
 
   function getFeed() {
@@ -72,6 +75,7 @@ class rss_eye {
       // Increase while-loop counter
       $i++;
     } // close while loop
+    return true; // All good!
   } // close check();
 
 }
