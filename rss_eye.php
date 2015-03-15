@@ -4,6 +4,10 @@ class rss_eye {
   var $url;
   var $hashMethod = 'md5';
   var $tmpDir = '/tmp/';
+  var $items = array(
+    "new" => Array(),
+    "cached" => Array(),
+  );
   var $feed;
 
   function rss_eye($url) {
@@ -54,11 +58,14 @@ class rss_eye {
            fwrite($fp, $itemJSON);
            fclose($fp);
 
+           array_push($this->items['new'],$xml->channel->item[$i]);
+
     	}
     	else {
     	    // RSS Item has already been cached.
 
-          array_push($items, $itemJSON);
+          array_push($this->items['cached'],$xml->channel->item[$i]);
+
 
       }
 
