@@ -1,5 +1,5 @@
-# rss_eye
-PHP Class for watching RSS feed and easily knowing which feed are new since the last time they were cached.
+# aws_status_eye
+Uses `rss_eye` [https://github.com/bryankaraffa/rss_eye] and polls the Amazon Web Service RSS Feed for changes/outages.
 
 # Usage:
 First you will need to download rss_eye.php and include it in whatever script you are using.
